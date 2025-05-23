@@ -17,6 +17,7 @@ import {
 } from "@/lib/prompts";
 import Image from "next/image";
 import meta from "@/assets/Meta-ai-logo.png";
+import Ez from "@/assets/EJ-shop-logo.png";
 import { AutosizeTextarea } from "@/components/ui/textarea";
 import bg from "@/assets/wap-bg.png";
 import TextRotate from "@/components/fancy/text-rotate";
@@ -180,8 +181,8 @@ export default function Chat() {
       >
         <div className="flex items-center gap-3">
           <Image
-            src={meta}
-            alt="Kairos AI logo"
+            src={Ez}
+            alt="Ez AI logo"
             width={36}
             className="logo-shadow"
           />
