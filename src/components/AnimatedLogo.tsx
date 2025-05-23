@@ -4,7 +4,7 @@ interface AnimatedLogoProps {
   className?: string;
 }
 
-export default function AnimatedLogo({ width = 150, height = 150 }: AnimatedLogoProps) {
+export default function AnimatedLogo({ width = 150, height = 150, className }: AnimatedLogoProps) {
   return (
     <svg
   xmlns="http://www.w3.org/2000/svg"
