@@ -18,6 +18,7 @@ import {
 import Image from "next/image";
 import meta from "@/assets/Meta-ai-logo.png";
 import Ez from "@/assets/EJ-shop-logo.png";
+import verifiedBadge from "@/assets/verified-badge.png";
 import { AutosizeTextarea } from "@/components/ui/textarea";
 import bg from "@/assets/wap-bg.png";
 import TextRotate from "@/components/fancy/text-rotate";
@@ -188,7 +189,16 @@ export default function Chat() {
           />
 
           <div>
-            <h1 className="font-semibold">Ez Shop</h1>
+            <h1 className="font-semibold               flex items-center">
+                Ez Shop
+             <Image
+               src={verifiedBadge}
+               alt="Verified Badge"
+               width={20} 
+               height={20}
+               className="ml-2" 
+              />
+           </h1>
             <div className="text-sm text-muted-foreground inline-flex">
               with
               <TextRotate
