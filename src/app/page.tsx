@@ -168,6 +168,15 @@ export default function Chat() {
     audioChunks.current = [];
   };
 
+  // Add this function to handle suggestion clicks
+  const handleSuggestionClick = (suggestion: string) => {
+    // Directly append the message and trigger the AI response
+    append({
+      content: suggestion,
+      role: 'user'
+    });
+  };
+
   return (
     <div className="flex flex-col h-svh bg-gray-950/70 text-white max-w-2xl mx-auto rounded-2xl relative">
       <Image
@@ -190,25 +199,25 @@ export default function Chat() {
           />
 
           <div>
-            <h1 className="font-semibold               flex items-center">
-                EJ Shop
-             <Image
-               src={verifiedBadge}
-               alt="Verified Badge"
-               width={18} 
-               height={18}
-               className="ml-1" 
+            <h1 className="font-semibold flex items-center">
+              EJ Shop
+              <Image
+                src={verifiedBadge}
+                alt="Verified Badge"
+                width={18}
+                height={18}
+                className="ml-1"
               />
-           </h1>
+            </h1>
             <div className="text-sm text-muted-foreground inline-flex">
               with
               <TextRotate
-                 texts={[
-                   "Ez AI ✨",
-                   "Easy Shopping 🛒",
-                   "Trending Deals 🔥",
-                   "Instant Support 💬",
-                   "AI-Powered Search 🚀",
+                texts={[
+                  "Ez AI ✨",
+                  "Easy Shopping 🛒",
+                  "Trending Deals 🔥",
+                  "Instant Support 💬",
+                  "AI-Powered Search 🚀",
                 ]}
                 mainClassName="px-2"
                 staggerFrom={"last"}
@@ -256,21 +265,21 @@ export default function Chat() {
               transition={{ duration: 0.5 }}
             >
               <div className="relative flex flex-col items-center justify-center mt-20 md:mt-32 gap-4">
-  <AnimatedLogo 
-    width={130}
-    height={130}
-    className="cursor-pointer"
-  />
-  <AnimatedLogo 
-    width={130}
-    height={130}
-    className="absolute top-0 rotate-12 blur-xl opacity-70 cursor-pointer"
-  />
+                <AnimatedLogo
+                  width={130}
+                  height={130}
+                  className="cursor-pointer"
+                />
+                <AnimatedLogo
+                  width={130}
+                  height={130}
+                  className="absolute top-0 rotate-12 blur-xl opacity-70 cursor-pointer"
+                />
 
-  <h2 className="text-2xl md:text-4xl tracking-tight font-semibold word-spacing-4">
-    Ask Ez AI anything
-  </h2>
-</div>
+                <h2 className="text-2xl md:text-4xl tracking-tight font-semibold word-spacing-4">
+                  Ask Ez AI anything
+                </h2>
+              </div>
 
               <div
                 className="relative overflow-scroll w-full pb-6 mt-6 flex flex-col gap-3 md:gap-4"
@@ -285,11 +294,7 @@ export default function Chat() {
                       key={i}
                       variant="outline"
                       className="rounded-full bg-gray-700/30 hover:bg-gray-700/40 text-gray-300/90"
-                      onClick={() =>
-                        handleInputChange({
-                          target: { value: suggestion.text },
-                        } as React.ChangeEvent<HTMLInputElement>)
-                      }
+                      onClick={() => handleSuggestionClick(suggestion.text)}
                     >
                       {suggestion.emoji} {suggestion.text}
                     </Button>
@@ -302,11 +307,7 @@ export default function Chat() {
                         key={i}
                         variant="outline"
                         className="rounded-full bg-gray-700/30 hover:bg-gray-700/40 text-gray-300/90"
-                        onClick={() =>
-                          handleInputChange({
-                            target: { value: suggestion.text },
-                          } as React.ChangeEvent<HTMLInputElement>)
-                        }
+                        onClick={() => handleSuggestionClick(suggestion.text)}
                       >
                         {suggestion.emoji} {suggestion.text}
                       </Button>
@@ -320,11 +321,7 @@ export default function Chat() {
                         key={i}
                         variant="outline"
                         className="rounded-full bg-gray-700/30 hover:bg-gray-700/40 text-gray-300/90"
-                        onClick={() =>
-                          handleInputChange({
-                            target: { value: suggestion.text },
-                          } as React.ChangeEvent<HTMLInputElement>)
-                        }
+                        onClick={() => handleSuggestionClick(suggestion.text)}
                       >
                         {suggestion.emoji} {suggestion.text}
                       </Button>
