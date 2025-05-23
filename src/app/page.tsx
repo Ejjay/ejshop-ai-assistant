@@ -190,12 +190,12 @@ export default function Chat() {
 
           <div>
             <h1 className="font-semibold               flex items-center">
-                Ez Shop
+                EJ Shop
              <Image
                src={verifiedBadge}
                alt="Verified Badge"
-               width={20} 
-               height={20}
+               width={18} 
+               height={18}
                className="ml-1" 
               />
            </h1>
@@ -203,11 +203,11 @@ export default function Chat() {
               with
               <TextRotate
                  texts={[
-                   "Ez AI 🚀",
+                   "Ez AI ✨",
                    "Easy Shopping 🛒",
-                   "Trending Deals ✨",
+                   "Trending Deals 🔥",
                    "Instant Support 💬",
-                   "AI-Powered Search 🔎",
+                   "AI-Powered Search 🚀",
                 ]}
                 mainClassName="px-2"
                 staggerFrom={"last"}
