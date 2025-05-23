@@ -1,6 +1,7 @@
 interface AnimatedLogoProps {
   width?: number;
   height?: number;
+  className?: string;
 }
 
 export default function AnimatedLogo({ width = 150, height = 150 }: AnimatedLogoProps) {
@@ -10,6 +11,7 @@ export default function AnimatedLogo({ width = 150, height = 150 }: AnimatedLogo
   viewBox="-2 -2 32 32"
   width={width}
   height={height}
+  className={className}
 >
   <circle r="0" fill="#ff0000">
     <animateMotion
