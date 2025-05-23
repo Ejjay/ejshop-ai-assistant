@@ -187,16 +187,16 @@ export default function Chat() {
           />
 
           <div>
-            <h1 className="font-semibold">Ez AI</h1>
+            <h1 className="font-semibold">Ez Shop</h1>
             <div className="text-sm text-muted-foreground inline-flex">
               with
               <TextRotate
-                texts={[
-                  "Llama 3.3 🦙",
-                  "Flux schnell ✨",
-                  "Unsplash 🖼️",
-                  "Gemini 🪐",
-                  "Tavily 🤖",
+                 texts={[
+                   "Ez AI 🤖",
+                   "Easy Shopping 🛒",
+                   "Trending Deals ✨",
+                   "Instant Support 💬",
+                   "AI-Powered Search 🔎",
                 ]}
                 mainClassName="px-2"
                 staggerFrom={"last"}
