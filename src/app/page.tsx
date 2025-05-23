@@ -23,7 +23,7 @@ import verifiedBadge from "@/assets/verified-badge.png";
 import { AutosizeTextarea } from "@/components/ui/textarea";
 import bg from "@/assets/wap-bg.png";
 import TextRotate from "@/components/fancy/text-rotate";
-import { CustomMessage } from "@/types/chat"; // Import the extended message type
+import { CustomMessage } from "@/types/chat"; 
 
 export default function Chat() {
   const [imgUrl, setImgUrl] = useState<string | undefined>("");
@@ -350,10 +350,11 @@ export default function Chat() {
           )}
         </AnimatePresence>
 
-        {messages.map(
-          (message, i) =>
-            (message.content ||
-              message.toolInvocations?.some(
+        {messages.map((message, i) => {
+          const customMessage = message as CustomMessage;
+          return (
+            (customMessage.content ||
+              customMessage.toolInvocations?.some(
                 (tool) => tool.toolName === "generateAIImage"
               )) && (
               <motion.div
@@ -363,10 +364,10 @@ export default function Chat() {
                 transition={{ duration: 0.5 }}
                 className={cn(
                   "flex gap-1 md:gap-2 max-w-xl",
-                  message.role === "user" ? "w-fit ml-auto" : ""
+                  customMessage.role === "user" ? "w-fit ml-auto" : ""
                 )}
               >
-                {message.role !== "user" && (
+                {customMessage.role !== "user" && (
                   <Image
                     src={Ez}
                     alt="Ez ai logo"
@@ -377,15 +378,15 @@ export default function Chat() {
                 <div
                   className={cn(
                     "rounded-xl px-3 py-1 break-words",
-                    message.role === "user"
+                    customMessage.role === "user"
                       ? "bg-green-600 rounded-tr-none"
                       : "bg-gray-800 rounded-tl-none"
                   )}
                 >
-                  {message.toolInvocations?.some(
+                  {customMessage.toolInvocations?.some(
                     (tool) => tool.toolName === "generateAIImage"
                   ) ? (
-                    message.toolInvocations.map((toolInvocation) => (
+                    customMessage.toolInvocations.map((toolInvocation) => (
                       <div key={toolInvocation.toolCallId}>
                         {imgUrl && (
                           <img
@@ -434,13 +435,13 @@ export default function Chat() {
                         ),
                       }}
                     >
-                      {message.content}
+                      {customMessage.content}
                     </Markdown>
                   )}
 
                   {isLoading &&
                     i === messages.length - 1 &&
-                    message.role !== "user" && (
+                    customMessage.role !== "user" && (
                       <div className="flex items-center space-x-1 my-1">
                         <div className="size-2 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.3s]"></div>
                         <div className="size-2 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.15s]"></div>
@@ -450,20 +451,21 @@ export default function Chat() {
                   <p
                     className={cn(
                       "text-[10px] -mt-1.5",
-                      message.role === "user"
+                      customMessage.role === "user"
                         ? "text-gray-300 ml-auto text-end w-full"
                         : "text-gray-500"
                     )}
                   >
-                    {message.timestamp}
+                    {customMessage.timestamp}
                   </p>
                 </div>
-                {message.role === "user" && (
+                {customMessage.role === "user" && (
                   <div className="size-7 bg-gradient-to-br to-green-600 from-cyan-500 via-emerald-500 rounded-full" />
                 )}
               </motion.div>
             )
-        )}
+          );
+        })}
       </div>
 
       <AnimatePresence>
