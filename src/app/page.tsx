@@ -181,13 +181,13 @@ export default function Chat() {
         <div className="flex items-center gap-3">
           <Image
             src={meta}
-            alt="meta ai logo"
+            alt="Kairos AI logo"
             width={36}
             className="logo-shadow"
           />
 
           <div>
-            <h1 className="font-semibold">Meta AI</h1>
+            <h1 className="font-semibold">Ez AI</h1>
             <div className="text-sm text-muted-foreground inline-flex">
               with
               <TextRotate
@@ -246,7 +246,7 @@ export default function Chat() {
               <div className="relative flex flex-col items-center justify-center mt-20 md:mt-32 gap-4">
                 <Image
                   src={meta}
-                  alt="meta ai logo"
+                  alt="Ez ai logo"
                   width={130}
                   placeholder="blur"
                   fetchPriority="high"
@@ -255,7 +255,7 @@ export default function Chat() {
                 />
                 <Image
                   src={meta}
-                  alt="meta ai logo"
+                  alt="Ez ai logo"
                   width={130}
                   placeholder="blur"
                   fetchPriority="low"
@@ -264,7 +264,7 @@ export default function Chat() {
                 />
 
                 <h2 className="text-2xl md:text-4xl tracking-tight font-semibold word-spacing-4">
-                  Ask Meta AI anything
+                  Ask Ez AI anything
                 </h2>
               </div>
 
@@ -351,7 +351,7 @@ export default function Chat() {
                 {message.role !== "user" && (
                   <Image
                     src={meta}
-                    alt="meta ai logo"
+                    alt="Ez ai logo"
                     width={30}
                     className="logo-shadow size-6 md:size-7"
                   />
