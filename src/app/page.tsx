@@ -132,6 +132,11 @@ export default function Chat() {
     const userMessage: Message = {
       role: "user",
       content: "[Voice Message]",
+      timestamp: new Date().toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      }),
       id: Date.now().toString(),
     };
     append(userMessage);
@@ -141,6 +146,11 @@ export default function Chat() {
     const aiMessage: Message = {
       role: "assistant",
       content: `I received a voice message. Here's what I understood: "${dummyTranscription}"`,
+      timestamp: new Date().toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      }),
       id: Date.now().toString(),
     };
     append(aiMessage);
@@ -168,12 +178,17 @@ export default function Chat() {
     audioChunks.current = [];
   };
 
-  // Add this function to handle suggestion clicks
   const handleSuggestionClick = (suggestion: string) => {
-    // Directly append the message and trigger the AI response
+    const currentTime = new Date().toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    });
+
     append({
       content: suggestion,
-      role: 'user'
+      role: 'user',
+      timestamp: currentTime
     });
   };
 
@@ -438,10 +453,7 @@ export default function Chat() {
                         : "text-gray-500"
                     )}
                   >
-                    {new Date().toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
+                    {message.timestamp}
                   </p>
                 </div>
                 {message.role === "user" && (
@@ -511,7 +523,22 @@ export default function Chat() {
       </AnimatePresence>
 
       <motion.form
-        onSubmit={handleSubmit}
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (!input.trim()) return;
+
+          const currentTime = new Date().toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+          });
+
+          append({
+            content: input,
+            role: 'user',
+            timestamp: currentTime
+          });
+        }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
