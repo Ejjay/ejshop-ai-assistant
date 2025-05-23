@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useChat, Message } from "ai/react";
+import { useChat } from "ai/react";
 import remarkGfm from "remark-gfm";
 import { Play, Pause, X, PlusCircle, SendHorizonal, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,7 @@ import verifiedBadge from "@/assets/verified-badge.png";
 import { AutosizeTextarea } from "@/components/ui/textarea";
 import bg from "@/assets/wap-bg.png";
 import TextRotate from "@/components/fancy/text-rotate";
+import { CustomMessage } from "@/types/chat"; // Import the extended message type
 
 export default function Chat() {
   const [imgUrl, setImgUrl] = useState<string | undefined>("");
@@ -34,7 +35,7 @@ export default function Chat() {
     isLoading,
     error,
     append,
-  } = useChat({
+  } = useChat<CustomMessage>({ // Use the extended message type
     maxSteps: 6,
 
     async onToolCall({ toolCall }) {
@@ -129,7 +130,7 @@ export default function Chat() {
     const dummyTranscription =
       "This is a dummy transcription of the voice message.";
 
-    const userMessage: Message = {
+    const userMessage: CustomMessage = {
       role: "user",
       content: "[Voice Message]",
       timestamp: new Date().toLocaleTimeString('en-US', {
@@ -143,7 +144,7 @@ export default function Chat() {
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const aiMessage: Message = {
+    const aiMessage: CustomMessage = {
       role: "assistant",
       content: `I received a voice message. Here's what I understood: "${dummyTranscription}"`,
       timestamp: new Date().toLocaleTimeString('en-US', {
