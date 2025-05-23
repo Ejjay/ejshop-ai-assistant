@@ -196,14 +196,14 @@ export default function Chat() {
                alt="Verified Badge"
                width={20} 
                height={20}
-               className="ml-2" 
+               className="ml-1" 
               />
            </h1>
             <div className="text-sm text-muted-foreground inline-flex">
               with
               <TextRotate
                  texts={[
-                   "Ez AI 🤖",
+                   "Ez AI 🚀",
                    "Easy Shopping 🛒",
                    "Trending Deals ✨",
                    "Instant Support 💬",
