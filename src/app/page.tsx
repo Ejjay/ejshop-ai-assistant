@@ -16,7 +16,8 @@ import {
   suggestions,
 } from "@/lib/prompts";
 import Image from "next/image";
-import meta from "@/assets/Meta-ai-logo.png";
+import AnimatedLogo from "@/components/AnimatedLogo";
+// import meta from "@/assets/Meta-ai-logo.png";
 import Ez from "@/assets/EJ-shop-logo.png";
 import verifiedBadge from "@/assets/verified-badge.png";
 import { AutosizeTextarea } from "@/components/ui/textarea";
@@ -255,29 +256,21 @@ export default function Chat() {
               transition={{ duration: 0.5 }}
             >
               <div className="relative flex flex-col items-center justify-center mt-20 md:mt-32 gap-4">
-                <Image
-                  src={meta}
-                  alt="Ez ai logo"
-                  width={130}
-                  placeholder="blur"
-                  fetchPriority="high"
-                  loading="eager"
-                  className="meta-spin cursor-pointer"
-                />
-                <Image
-                  src={meta}
-                  alt="Ez ai logo"
-                  width={130}
-                  placeholder="blur"
-                  fetchPriority="low"
-                  loading="lazy"
-                  className="meta-spin absolute top-0 rotate-12 blur-xl opacity-70 cursor-pointer"
-                />
+  <AnimatedLogo 
+    width={130}
+    height={130}
+    className="cursor-pointer"
+  />
+  <AnimatedLogo 
+    width={130}
+    height={130}
+    className="absolute top-0 rotate-12 blur-xl opacity-70 cursor-pointer"
+  />
 
-                <h2 className="text-2xl md:text-4xl tracking-tight font-semibold word-spacing-4">
-                  Ask Ez AI anything
-                </h2>
-              </div>
+  <h2 className="text-2xl md:text-4xl tracking-tight font-semibold word-spacing-4">
+    Ask Ez AI anything
+  </h2>
+</div>
 
               <div
                 className="relative overflow-scroll w-full pb-6 mt-6 flex flex-col gap-3 md:gap-4"
@@ -361,7 +354,7 @@ export default function Chat() {
               >
                 {message.role !== "user" && (
                   <Image
-                    src={meta}
+                    src={Ez}
                     alt="Ez ai logo"
                     width={30}
                     className="logo-shadow size-6 md:size-7"
