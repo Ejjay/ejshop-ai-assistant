@@ -35,7 +35,7 @@ export default function Chat() {
     isLoading,
     error,
     append,
-  } = useChat<CustomMessage>({ // Use the extended message type
+  } = useChat({
     maxSteps: 6,
 
     async onToolCall({ toolCall }) {
@@ -52,6 +52,7 @@ export default function Chat() {
       }
     },
   });
+
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -190,7 +191,7 @@ export default function Chat() {
       content: suggestion,
       role: 'user',
       timestamp: currentTime
-    });
+    } as CustomMessage);  // Cast to CustomMessage type
   };
 
   return (
@@ -538,7 +539,7 @@ export default function Chat() {
             content: input,
             role: 'user',
             timestamp: currentTime
-          });
+          } as CustomMessage);  // Cast to CustomMessage type
         }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
