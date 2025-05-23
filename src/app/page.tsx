@@ -202,23 +202,22 @@ export default function Chat() {
             <div className="text-sm text-muted-foreground inline-flex">
               with
               <TextRotate
-                 texts={[
-                   "Ez AI ✨",
-                   "Easy Shopping 🛒",
-                   "Trending Deals 🔥",
-                   "Instant Support 💬",
-                   "AI-Powered Search 🚀",
-                ]}
-                mainClassName="px-2"
-                staggerFrom={"last"}
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "-120%" }}
-                staggerDuration={0.025}
-                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                transition={{ type: "spring", damping: 20, stiffness: 200 }}
-                rotationInterval={2200}
-              />
+  texts={[
+    "Ez AI ✨",
+    "Easy Shopping 🛒",
+    "Trending Deals 🔥",
+    "Instant Support 💬",
+    "AI-Powered Search 🚀",
+  ]}
+  mainClassName="px-2"
+  staggerFrom={"last"}
+  initial={{ y: "100%" }}
+  animate={{ y: 0 }}
+  exit={{ y: "-120%" }}
+  staggerDuration={0.05} // Increased for smoother transition
+  transition={{ type: "spring", damping: 25, stiffness: 150 }} // Modified for slower effect
+  rotationInterval={5000} // Increased for slower text change
+/>
             </div>
           </div>
         </div>
